@@ -6,7 +6,6 @@ import textwrap, os
 W, H = 1024, 1024
 BG = (13, 20, 36)
 PANEL = (24, 33, 56)
-PANEL2 = (30, 41, 66)
 WHITE = (255, 255, 255)
 MUTED = (203, 213, 225)
 ACCENTS = [(239, 68, 68), (249, 115, 22), (234, 179, 8), (34, 197, 94), (59, 130, 246), (168, 85, 247)]
@@ -57,13 +56,11 @@ for i, (tag, head, body) in enumerate(stories):
     d.rounded_rectangle([x, y, x+gw, y+gh], radius=14, fill=PANEL, outline=(51, 65, 85), width=1)
     d.rounded_rectangle([x, y, x+gw, y+10], radius=5, fill=accent)
     d.text((x+18, y+22), tag, font=F_TAG, fill=accent)
-    # headline wrapped
     lines = textwrap.wrap(head, width=24)
     yy = y + 52
     for ln in lines[:2]:
         d.text((x+18, yy), ln, font=F_HEAD, fill=WHITE)
         yy += 32
-    # body wrapped
     blines = textwrap.wrap(body, width=38)
     yy += 6
     for ln in blines[:4]:
